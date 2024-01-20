@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Form</title>
+    <link rel="stylesheet" href="sass/login-form.css">
+</head>
+<body style="background: #00ffff;">
+    <Div class="header">
+        <div class="header-top">
+            <h2>Login Form</h2>
+        </div>
+        <div class="header-bottom">
+            <label for="sername">User Name</label>
+            <input type="text" id="username" value="">
+            <label for="Password">Password</label>
+            <div class="eye-box"><img id="im" src="images/eye.png" alt="" onclick="demo()"></div>
+            <input type="password" id="password" value="">
+            <div class="capcha-div">
+                <div class="capcha">
+                    <del id="genCaptcha" class="strike">ABSDSD</del>
+                </div>
+                <div class="space"></div>
+                <div class="refresh">
+                    <i onclick="refCaptcha()" class="fa-solid fa-arrows-rotate"></i>
+                </div>
+            </div>
+            <input type="text" id="matchVal" value="">
+            <p id="message"></p>
+            <input type="button" value="Send" onclick="button()">
+        </div>
+    </Div>
+    <script>
+        function demo(){
+            let i=document.getElementById("im")
+            let pwd=document.getElementById("password")
+            if(pwd.type == "password")
+            {
+                pwd.type="text"
+                i.src="images/hide.png"
+            }
+            else{
+                 pwd.type="password"
+                i.src="images/eye.png"
+            }
+        }
+        //captcha code here
+        function captcha(){
+            const char="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+            let charText=" "
+            for(let i=0; i<6; i++){
+                charText=charText+char.charAt(Math.floor(Math.random()*char.length))
+            }
+            document.getElementById("genCaptcha").textContent=charText
+        }
+        captcha()
+
+        function refCaptcha(){
+            captcha()
+            document.getElementById("matchVal").value=" "
+        }
+        function button(){
+            let gen=document.getElementById("genCaptcha").value
+            let match=document.getElementById("matchval").value
+            let msg=document.getElementById("message")
+            if(gen.value == match.value){
+                msg.innerText="valid captcha"
+                gen.value != captcha()
+            }
+            else{
+                gen.value = captcha()
+                msg.innerText="Invalid captcha"
+                
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/2ff7c8de59.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+$primary_font:'Epilogue';
+$secondry_font:'Fredoka';
+$primary_color:#f3274c;
+$secondary_color:#ffd40d;
+$ternary_color:#b6b6b6;
+$forth_color:#ffffff;
+$primary_background:#f5f8fd;
+$secondary_bacground:#f3264c;
+$para_size:1em;
+$main_heading:3.8em;
+$small_heading:2.4em;
+$paddding_top:2.4rem;
+$padding_bottom:2.4rem;
+
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,50#ffd40d0;1,100;1,200;1,300;1,400&family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@500&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: $secondry_font;
+}
+.top-header{
+    min-height: 50px;
+    width: 100%;
+    background: $secondary_color;
+    font-family: $secondry_font;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .contact{
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .mobile-icon{
+            background: $primary_color;
+            text-align: center;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            color: #ffffff;
+        }
+        .contact-content{
+            padding-left: 10px;
+        }
+    }
+    .social{
+        width: 25%;
+        display: flex;
+        justify-content: space-around;
+        a{
+            color: #000000;
+            text-align: center;
+        }
+    }
+    .login{
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .contact-content{
+            padding-left: 10px;
+        }
+    }
+    
+}
+@media (max-width:900px) {
+    .top-header{
+        flex-direction: column;
+    }
+    .top-header .social{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .top-header .login{
+        width: 100%;
+    }
+}
